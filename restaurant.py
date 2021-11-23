@@ -1,2 +1,2 @@
 class Table:
-    pass
+    pass0
