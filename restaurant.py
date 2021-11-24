@@ -1,7 +1,8 @@
 class Table:
-    bill = []
+
     def __init__(self,no_of_people):
         self.no_of_people = no_of_people
+        self.bill = []
 
     def order(self,item,price,quantity=1):
         self.item = item
