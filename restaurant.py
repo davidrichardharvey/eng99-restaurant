@@ -25,3 +25,27 @@ class Table:
 
         print("Item has been removed.")
 
+
+    def get_subtotal(self):
+        menu_total = 0
+        for menu_item in self.bill:
+            total += menu_item["price"] * menu_item["quantity"]
+            return round(menu_total, 2)
+
+
+    def get_total(self, service_charge=0.1):
+        subtotal = self.get_subtotal()
+        total_service_charge = round((subtotal * service_charge), 2)
+        total = subtotal + total_service_charge
+        total_bill = {
+            "Sub Total": subtotal,
+            "Service Charge": total_service_charge,
+            "Total": total
+        }
+        return total_bill
+
+
+    def split_bill(self, num_of_diners):
+        subtotal = self.get_subtotal()
+        each_diner = subtotal / num_of_diners
+        return each_diner
