@@ -29,6 +29,20 @@ class Table:
         for dic in self.bill:
             if self.item in dic.values() and dic["quantity"] == 0:
                 self.bill.remove(dic)
+    def get_subtotal(self):
+        self.sub_total = 0
+        for dict in self.bill:
+            self.sub_total += dict["price"] * dict["quantity"]
+        return self.sub_total
+    def get_total(self,service_charge):
+        self.sub_total = self.get_subtotal()
+        self.total = self.sub_total + (self.sub_total * service_charge)
+        serv_charge = self.sub_total * service_charge
+        return {"Sub Total":"£"+str("{:.2f}".format(self.sub_total)),"Service Charge": "£"+str(serv_charge),"Total":"£"+str(self.total)}
+    def split_bill(self):
+        return round((self.get_subtotal() / self.no_of_people),2)
+
+
 
 
 
