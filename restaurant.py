@@ -29,7 +29,7 @@ class Table:
         subtotal = self.get_subtotal()
         ser_charge = round(subtotal * service_charge_percentage,2)
         total = subtotal + ser_charge
-        total_bill ={"Sub Total": f"£{subtotal}","Service Charge": f"£{ser_charge}","Total":f"£{total}"}
+        total_bill ={"Sub Total": f"£{subtotal:.2f}","Service Charge": f"£{ser_charge:.2f}","Total":f"£{total:.2f}"} # :.2f puts the float to 2dp
         return total_bill
 
     def split_bill(self):
