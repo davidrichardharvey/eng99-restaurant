@@ -1,4 +1,3 @@
-
 class Table:
     def __init__(self, num):
         self.bill = []
@@ -20,12 +19,24 @@ class Table:
                     self.bill.remove(items)
         print("The item has been removed.")
 
-
     def get_subtotal(self):
-        pass
+        sub = 0
+        for i in self.bill:
+            price = i["price"]
+            amount = i["quantity"]
+            sub += price * amount
+        return round(sub, 2)
 
-    def get_total(self, param):
-        pass
+    def get_total(self, service_charge=0.1):
+        subtotal = self.get_subtotal()
+        service_charge = subtotal * service_charge
+        total = subtotal + service_charge
+        summary = {"Sub Total": f"£{subtotal:.2f}",
+               "Service Charge": f"£{service_charge:.2f}",
+               "Total": f"£{total:.2f}"}
+        return summary
 
     def split_bill(self):
-        pass
+        subtotal = self.get_subtotal()
+        split = subtotal / self.num
+        return split
