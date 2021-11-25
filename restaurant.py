@@ -13,7 +13,13 @@ class Table:
         self.bill.append({"item": item, "price": price, "quantity": amount})
 
     def remove(self, item, price, amount=1):
-        del self.bill[item]
+        for items in self.bill:
+            if items["item"] == item:
+                items["quantity"] -= amount
+                if items["quantity"] == 0:
+                    self.bill.remove(items)
+        print("The item has been removed.")
+
 
     def get_subtotal(self):
         pass
