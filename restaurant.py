@@ -44,7 +44,7 @@ class Table:
         total_service_charge = round((subtotal * service_charge), 2)
         total = subtotal + total_service_charge
         total_bill = {
-            "Sub Total": f"£{subtotal}",
+            "Sub Total": f"£{subtotal:.2f}",
             "Service Charge": f"£{total_service_charge}",
             "Total": f"£{total}"
         }
