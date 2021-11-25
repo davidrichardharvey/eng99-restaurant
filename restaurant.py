@@ -32,8 +32,8 @@ class Table:
         service_charge = subtotal * service_charge
         total = subtotal + service_charge
         summary = {"Sub Total": f"£{subtotal:.2f}",
-               "Service Charge": f"£{service_charge:.2f}",
-               "Total": f"£{total:.2f}"}
+                   "Service Charge": f"£{service_charge:.2f}",
+                   "Total": f"£{total:.2f}"}
         return summary
 
     def split_bill(self):
