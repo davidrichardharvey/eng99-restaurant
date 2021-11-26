@@ -7,6 +7,8 @@ class Table:
     def greeting(self):
         print("Hello!")
 
+    def rokas(self):
+        pass
 
 
 
