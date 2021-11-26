@@ -11,5 +11,5 @@ print(table01.get_subtotal())
 print(table01.get_total(0.15))
 print(table01.split_bill())
 
-# Run unit tests automatically
+#Run unit tests automatically
 main(module='test_module', exit=False)
