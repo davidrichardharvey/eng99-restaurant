@@ -7,6 +7,7 @@ class Table:
     def greeting(self):
         print("Hello!")
 
-
+    def name(self, name):
+        print(name)
 
 
