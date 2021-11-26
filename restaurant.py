@@ -26,12 +26,13 @@ class Table:
                 # print(new_quantity)
                 n.update({"quantity": new_quantity})
                 return self.bill
-            elif n['item'] == item and n["price"] == price and n["quantity"] == 1:
+            elif n['item'] == item and n["price"] == price and n["quantity"] <= 1:
                 n.clear()
                 return self.bill
 
     def get_subtotal(self): # total the price of a table
         for n in self.bill:
+            #find the total for prices and quantity and multiply together
             price_of_item = n["price"]
             quantity_of_item = n["quantity"]
             print(price_of_item)
@@ -60,6 +61,7 @@ print(table02.order("Food2", 11.00, 2))
 print(table02.order("Food3", 5.00, 1))
 print(table02.remove("Food3", 5.00, 1))
 print(table02.remove("Food", 10.00, 1))
+print(table02.order("Food4", 10.00, 5))
 print(table02.remove("Food2", 11.00, 1))
 print(table02.get_subtotal())
 
