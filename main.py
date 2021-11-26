@@ -1,4 +1,4 @@
-from restaurant import Table
+ggfrom restaurant import Table
 from unittest import main
 
 table01 = Table(5)
