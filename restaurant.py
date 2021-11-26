@@ -7,6 +7,8 @@ class Table:
     def greeting(self):
         print("Hello!")
 
+    def brand_spanking_new_method(self):
+        print("Ivan Kalashnikov")
 
 
 
