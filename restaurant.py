@@ -7,6 +7,9 @@ class Table:
     def greeting(self):
         print("Hello!")
 
+    def print_dilwar(self):
+        print("Delwar")
+
 
 
 
