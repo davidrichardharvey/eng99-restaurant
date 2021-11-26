@@ -1,2 +1,6 @@
 class Table:
-    pass
+    def greeting(self):
+        print("Hello!")
+
+
+
