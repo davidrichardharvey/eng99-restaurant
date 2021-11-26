@@ -8,7 +8,7 @@ class Table:
         print("Hello!")
 
     def rokas(self):
-        pass
+        print("rokas")
 
 
 
