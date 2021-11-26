@@ -1,3 +1,4 @@
+# before branching out of viggy
 class Table:
 
     def __init__(self,no_of_people):
