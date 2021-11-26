@@ -1,12 +1,7 @@
 class Table:
     def __init__(self, people):
         self.people = people
-        self.bills = []
-        self.bill = {
-            "item": "",
-            "price": 0.00,
-            "quantity": 0
-        }
+        self.bill = []
         self.total_bill = {
             "Sub Total": 0.00,
             "Service Charge": 0.00,
@@ -14,28 +9,31 @@ class Table:
         }
 
     def order(self, item: str, price: float, quantity=1): # Create a bill
-        self.bill = {
+        bills = {
             "item": item,
             "price": price,
             "quantity": quantity
         }
-        self.bills.append(self.bill)
-        return self.bill
+        self.bill.append(bills)
+        return bills
 
     def remove(self, item, price, quantity): #modify bill to decrease quantity
-        for n in self.bills:
-            if self.bill["item"] == item and self.bill["price"] == price:
-                old_quantity = self.bill["quantity"]
+        for n in self.bill:
+            if n['item'] == item and n["price"] == price and n["quantity"] > 1:
+                old_quantity = n["quantity"]
                 new_quantity = old_quantity - quantity
-                self.bill.update({"quantity": new_quantity})
+                # print(old_quantity)
+                # print(new_quantity)
+                n.update({"quantity": new_quantity})
                 return self.bill
-            else:
-                return False
+            elif n['item'] == item and n["price"] == price and n["quantity"] == 1:
+                n.clear()
+                return self.bill
 
     def get_subtotal(self): # total the price of a table
-        for n in self.bills:
-            price_of_item = self.bill["price"]
-            quantity_of_item = self.bill["quantity"]
+        for n in self.bill:
+            price_of_item = n["price"]
+            quantity_of_item = n["quantity"]
             print(price_of_item)
             print(quantity_of_item)
             sub_total = price_of_item * quantity_of_item
@@ -55,10 +53,13 @@ class Table:
 
     #def split_bill(self): #divide the bill between all the people at the table
 
+
 table02 = Table(2)
 print(table02.order("Food", 10.00, 3))
 print(table02.order("Food2", 11.00, 2))
-print(table02.remove("Food2", 10.00, 1))
+print(table02.order("Food3", 5.00, 1))
+print(table02.remove("Food3", 5.00, 1))
 print(table02.remove("Food", 10.00, 1))
+print(table02.remove("Food2", 11.00, 1))
 print(table02.get_subtotal())
 
